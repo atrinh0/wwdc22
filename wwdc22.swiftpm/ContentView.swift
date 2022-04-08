@@ -1,0 +1,156 @@
+import SwiftUI
+
+struct ContentView: View {
+    var body: some View {
+        ZStack {
+            gradientBackground
+            gradientStrokeCircle
+            topLeftCircleGlow
+            swiftLogoBottomGlow
+            swiftLogoTop
+            lensFlare
+            VStack {
+                Text("WWDC22")
+                    .foregroundColor(.white)
+                Spacer()
+                Text("Call to code.")
+                    .foregroundColor(.init(red: 198/255, green: 225/255, blue: 230/255))
+            }
+            .font(.title.weight(.bold))
+            .padding(.vertical, 100)
+        }
+        .edgesIgnoringSafeArea(.all)
+    }
+
+    private var gradientBackground: some View {
+        LinearGradient(colors: [Color(.sRGB, red: 2/255, green: 10/255, blue: 30/255, opacity: 1), .black],
+                       startPoint: .top, endPoint: .bottom)
+    }
+
+    private var gradientStrokeCircle: some View {
+        AngularGradient(colors: [.orange, .yellow, .green, .teal, .blue,
+                                 .blue, .indigo, .indigo, .black, .black,
+                                 .black, .purple, .purple, .purple, .black,
+                                 .black, .black, .black, .black, .orange].reversed(),
+                        center: .center, startAngle: .degrees(-90), endAngle: .degrees(270))
+            .mask {
+                Circle()
+                    .stroke(lineWidth: 2)
+            }
+            .padding(25)
+    }
+
+    private var topLeftCircleGlow: some View {
+        Circle()
+            .foregroundColor(.blue)
+            .padding(25)
+            .blur(radius: 50)
+            .opacity(0.5)
+            .mask {
+                AngularGradient(colors: [.clear, .white, .clear, .clear, .clear],
+                                center: .center, angle: .degrees(135))
+                    .mask {
+                        ZStack {
+                            Rectangle()
+                                .foregroundColor(.white)
+                            Circle()
+                                .foregroundColor(.black)
+                                .padding(25)
+                        }
+                        .compositingGroup()
+                        .luminanceToAlpha()
+                    }
+            }
+    }
+
+    private var swiftLogo: some View {
+        Image(systemName: "swift")
+            .resizable()
+            .scaledToFit()
+            .foregroundColor(.white)
+    }
+
+    private var swiftLogoBottomGlow: some View {
+        swiftLogo
+            .foregroundColor(.clear)
+            .overlay {
+                LinearGradient(colors: [Color(.sRGB, red: 149/255, green: 196/255, blue: 218/255, opacity: 1),
+                                        Color(.sRGB, red: 64/255, green: 116/255, blue: 163/255, opacity: 1),
+                                        .white,
+                                        Color(.sRGB, red: 64/255, green: 116/255, blue: 163/255, opacity: 1),
+                                        Color(.sRGB, red: 64/255, green: 116/255, blue: 163/255, opacity: 1),
+                                        Color(.sRGB, red: 64/255, green: 116/255, blue: 163/255, opacity: 1),
+                                        Color(.sRGB, red: 64/255, green: 116/255, blue: 163/255, opacity: 1),
+                                        Color(.sRGB, red: 2/255, green: 5/255, blue: 20/255, opacity: 1),
+                                        Color(.sRGB, red: 2/255, green: 5/255, blue: 20/255, opacity: 1)],
+                               
+                               startPoint: .bottomTrailing, endPoint: .topLeading)
+                    .mask {
+                        swiftLogo
+                    }
+            }
+            .padding(110)
+            .offset(x: 1.5, y: 1.5)
+    }
+
+    private var swiftLogoTop: some View {
+        swiftLogo
+            .foregroundColor(.clear)
+            .overlay {
+                LinearGradient(colors: [Color(.sRGB, red: 2/255, green: 5/255, blue: 20/255, opacity: 1),
+                                        Color(.sRGB, red: 6/255, green: 20/255, blue: 35/255, opacity: 1),
+                                        Color(.sRGB, red: 64/255, green: 96/255, blue: 130/255, opacity: 1)],
+                               startPoint: .bottomTrailing, endPoint: .topLeading)
+                    .mask {
+                        swiftLogo
+                    }
+            }
+            .padding(110)
+    }
+
+    private var lensFlare: some View {
+        ZStack {
+            Circle()
+                .foregroundColor(.blue)
+                .frame(width: 100, height: 100)
+                .blur(radius: 50)
+                .opacity(0.5)
+            lensFlareLine
+            lensFlareLine
+                .scaleEffect(0.3)
+                .rotationEffect(.degrees(-40))
+                .blur(radius: 1)
+            lensFlareLine
+                .scaleEffect(0.25)
+                .rotationEffect(.degrees(85))
+                .blur(radius: 1)
+            lensFlareLine
+                .scaleEffect(0.2)
+                .rotationEffect(.degrees(-10))
+            lensFlareLine
+                .scaleEffect(0.15)
+                .rotationEffect(.degrees(-50))
+            Circle()
+                .foregroundColor(.white)
+                .frame(width: 2, height: 2)
+                .blur(radius: 1)
+                .shadow(color: .white, radius: 2, x: 0, y: 0)
+                .shadow(color: .white, radius: 2, x: 0, y: 0)
+                .shadow(color: .white, radius: 2, x: 0, y: 0)
+        }
+        .offset(x: -82, y: -64)
+    }
+
+    private var lensFlareLine: some View {
+        LinearGradient(stops: [.init(color: .clear, location: 0.49),
+                               .init(color: .blue, location: 0.5),
+                               .init(color: .clear, location: 0.51)],
+                       startPoint: .top, endPoint: .bottom)
+            .mask {
+                RadialGradient(colors: [.white, .white, .white, .clear, .clear],
+                               center: .center, startRadius: 0, endRadius: 250)
+            }
+            .blur(radius: 3)
+            .opacity(0.25)
+    }
+}
