@@ -14,7 +14,7 @@ struct ContentView: View {
                     .foregroundColor(.white)
                 Spacer()
                 Text("Call to code.")
-                    .foregroundColor(.init(red: 198/255, green: 225/255, blue: 230/255))
+                    .foregroundColor(Color(red: 198/255, green: 225/255, blue: 230/255))
             }
             .font(.title.weight(.bold))
             .padding(.vertical, 100)
@@ -23,7 +23,7 @@ struct ContentView: View {
     }
 
     private var gradientBackground: some View {
-        LinearGradient(colors: [Color(.sRGB, red: 2/255, green: 10/255, blue: 30/255, opacity: 1), .black],
+        LinearGradient(colors: [Color(red: 2/255, green: 10/255, blue: 30/255), .black],
                        startPoint: .top, endPoint: .bottom)
     }
 
@@ -74,16 +74,15 @@ struct ContentView: View {
         swiftLogo
             .foregroundColor(.clear)
             .overlay {
-                LinearGradient(colors: [Color(.sRGB, red: 149/255, green: 196/255, blue: 218/255, opacity: 1),
-                                        Color(.sRGB, red: 64/255, green: 116/255, blue: 163/255, opacity: 1),
+                LinearGradient(colors: [Color(red: 149/255, green: 196/255, blue: 218/255),
+                                        Color(red: 64/255, green: 116/255, blue: 163/255),
                                         .white,
-                                        Color(.sRGB, red: 64/255, green: 116/255, blue: 163/255, opacity: 1),
-                                        Color(.sRGB, red: 64/255, green: 116/255, blue: 163/255, opacity: 1),
-                                        Color(.sRGB, red: 64/255, green: 116/255, blue: 163/255, opacity: 1),
-                                        Color(.sRGB, red: 64/255, green: 116/255, blue: 163/255, opacity: 1),
-                                        Color(.sRGB, red: 2/255, green: 5/255, blue: 20/255, opacity: 1),
-                                        Color(.sRGB, red: 2/255, green: 5/255, blue: 20/255, opacity: 1)],
-                               
+                                        Color(red: 64/255, green: 116/255, blue: 163/255),
+                                        Color(red: 64/255, green: 116/255, blue: 163/255),
+                                        Color(red: 64/255, green: 116/255, blue: 163/255),
+                                        Color(red: 64/255, green: 116/255, blue: 163/255),
+                                        Color(red: 2/255, green: 5/255, blue: 20/255),
+                                        Color(red: 2/255, green: 5/255, blue: 20/255)],
                                startPoint: .bottomTrailing, endPoint: .topLeading)
                     .mask {
                         swiftLogo
@@ -97,9 +96,9 @@ struct ContentView: View {
         swiftLogo
             .foregroundColor(.clear)
             .overlay {
-                LinearGradient(colors: [Color(.sRGB, red: 2/255, green: 5/255, blue: 20/255, opacity: 1),
-                                        Color(.sRGB, red: 6/255, green: 20/255, blue: 35/255, opacity: 1),
-                                        Color(.sRGB, red: 64/255, green: 96/255, blue: 130/255, opacity: 1)],
+                LinearGradient(colors: [Color(red: 2/255, green: 5/255, blue: 20/255),
+                                        Color(red: 6/255, green: 20/255, blue: 35/255),
+                                        Color(red: 64/255, green: 96/255, blue: 130/255)],
                                startPoint: .bottomTrailing, endPoint: .topLeading)
                     .mask {
                         swiftLogo
