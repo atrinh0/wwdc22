@@ -1,4 +1,8 @@
-The WWDC22 artwork in SwiftUI
+# WWDC22
+
+![](https://img.shields.io/badge/Xcode-13.2.1+-blue.svg)
+
+The WWDC22 artwork in SwiftUI.
 
 Reference image | Output
 --|--
