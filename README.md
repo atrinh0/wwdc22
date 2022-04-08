@@ -16,6 +16,6 @@ Source: https://developer.apple.com/wwdc22/
 
 ### Project
 
-Open the project using Xcode.
+Open the `wwdc22.swiftpm` project using Xcode.
 
 ![](images/xcode.png)
