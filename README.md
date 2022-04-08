@@ -4,9 +4,17 @@
 
 The WWDC22 artwork in SwiftUI.
 
-Reference image | Output
---|--
-![](images/reference.png)<br>Source: https://developer.apple.com/wwdc22/ | ![](images/output.png)
+### Output 
+
+![](images/output.png)
+
+### Reference image
+
+![](images/reference.png)
+
+Source: https://developer.apple.com/wwdc22/
+
+### Project
 
 Open the project using Xcode.
 
